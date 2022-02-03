@@ -2,6 +2,7 @@ package com.seokdev.voice_recorder_project.custom
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
@@ -20,10 +21,11 @@ class SoundVisualizerView(
 ) : View(context, attributeSet) {
 
     var onRequestCurrentAmplitude : (() -> Int) ?= null
+    private val barsColor = Color.argb(200, 181, 111, 233)
 
     companion object {
         private const val LINE_WIDTH = 10F
-        private const val LINE_SPACE = 15F
+        private const val LINE_SPACE = 25F
 
         // 오디오 레코더의 get max amplitude(진폭, 볼륨) 음성의 최대값의 short 타입 최대값임.
         private const val MAX_AMPLITUDE = Short.MAX_VALUE.toFloat() // Float로 미리 타입 변환
@@ -32,7 +34,7 @@ class SoundVisualizerView(
     }
 
     private val amplitudePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = context.getColor(R.color.purple_500)
+        color = barsColor
         strokeWidth = LINE_WIDTH
         strokeCap = Paint.Cap.ROUND
     }

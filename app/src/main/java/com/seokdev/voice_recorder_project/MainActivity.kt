@@ -5,6 +5,8 @@ import android.media.MediaPlayer
 import android.media.MediaRecorder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.seokdev.voice_recorder_project.databinding.ActivityMainBinding
 import java.util.jar.Manifest
@@ -115,6 +117,8 @@ class MainActivity : AppCompatActivity() {
             }
         recorder?.start()
         binding.recordTimeTextView.startCountUp()
+        binding.recordTimeTextView.setTextColor(ContextCompat.getColor(applicationContext, R.color.red))
+        binding.imgDot.visibility = View.VISIBLE
         binding.soundVisualizerView.startVisualizing(false)
         state = State.ON_RECORDING
     }
@@ -127,6 +131,8 @@ class MainActivity : AppCompatActivity() {
         recorder = null
         binding.soundVisualizerView.stopVisualizing()
         binding.recordTimeTextView.stopCountUp()
+        binding.imgDot.visibility = View.GONE
+        binding.recordTimeTextView.setTextColor(ContextCompat.getColor(applicationContext, R.color.black));
         state = State.AFTER_RECORDING
     }
 

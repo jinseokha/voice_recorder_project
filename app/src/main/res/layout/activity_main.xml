@@ -10,12 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".MainActivity">
 
         <com.seokdev.voice_recorder_project.custom.SoundVisualizerView
             android:id="@+id/soundVisualizerView"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="128dp"
+            android:layout_marginHorizontal="85dp"
+            android:layout_marginVertical="256dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@id/recordTimeTextView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,13 +36,26 @@
             app:layout_constraintTop_toTopOf="@+id/recordButton"
             tools:ignore="HardcodedText" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dot"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/recordTimeTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/recordTimeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/soundVisualizerView"
+            app:layout_constraintVertical_bias="1.0" />
+
         <com.seokdev.voice_recorder_project.custom.CountUpView
             android:id="@+id/recordTimeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="00:00"
-            android:textColor="@color/white"
+            android:text="00:00:00"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/recordButton"
             app:layout_constraintLeft_toLeftOf="@id/recordButton"
             app:layout_constraintRight_toRightOf="@id/recordButton"

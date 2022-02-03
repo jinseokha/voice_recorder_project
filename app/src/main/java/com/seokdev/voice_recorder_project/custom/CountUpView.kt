@@ -43,8 +43,9 @@ class CountUpView(
     }
 
     private fun updateCountTime(countTimeSeconds : Int) {
+        val hours = countTimeSeconds / 60 / 60
         val minutes = countTimeSeconds / 60
         val seconds = countTimeSeconds % 60
-        text = "%02d:%02d".format(minutes, seconds)
+        text = "%02d:%02d:%02d".format(hours, minutes, seconds)
     }
 }
